@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { By } from '@angular/platform-browser';
 import { CounterComponent } from './components/counter/counter.component';
@@ -24,7 +24,7 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('span').textContent).toContain('Hello World');
   });
 
-  it('should change title when click button', () => {
+  it('should change title when click button', fakeAsync(() => {
     const compiled = fixture.nativeElement;
 
     expect(compiled.querySelector('span').textContent).toContain('Hello World');
@@ -32,15 +32,15 @@ describe('AppComponent', () => {
     const button = fixture.debugElement.query(By.css('.test-button')).nativeElement;
 
     button.click();
-
-    /*tick(5000);
+    tick(5000);
     fixture.detectChanges();
-    expect(compiled.querySelector('.content span').textContent).toContain('Unit Testing app is running!');*/
 
-    fixture.whenStable().then(() => {
+    expect(compiled.querySelector('span').textContent).toContain('Unit Testing');
+
+    /*fixture.whenStable().then(() => {
       fixture.detectChanges();
 
       expect(compiled.querySelector('span').textContent).toContain('Unit Testing');
-    });
-  });
+    });*/
+  }));
 });

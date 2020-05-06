@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 
     <button id="increment" (click)="increment()">Increment</button>
   `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CounterComponent implements OnInit {
   count = 0;

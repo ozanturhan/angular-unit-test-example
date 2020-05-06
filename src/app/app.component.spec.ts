@@ -2,13 +2,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { By } from '@angular/platform-browser';
 import { CounterComponent } from './components/counter/counter.component';
-import { HarnessLoader } from '@angular/cdk/testing';
-import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
 
 describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
-  let loader: HarnessLoader;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -18,7 +15,6 @@ describe('AppComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
-    loader = TestbedHarnessEnvironment.loader(fixture);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
